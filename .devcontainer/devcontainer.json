@@ -1,0 +1,101 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+    "name": "Monorepo",
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+      "ghcr.io/devcontainers/features/github-cli:1": {},
+      "ghcr.io/devcontainers/features/docker-in-docker:2.7.1": {},
+      "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+      "ghcr.io/devcontainers/features/git:1": {},
+      "ghcr.io/devcontainers/features/terraform:1": {},
+      "ghcr.io/dhoeric/features/google-cloud-cli:1": {},
+      "ghcr.io/flexwie/devcontainer-features/op:1": {},
+      "ghcr.io/devcontainers/features/common-utils:2": {
+        "configureZshAsDefaultShell": true
+      },
+      "ghcr.io/devcontainers-contrib/features/argo-cd:1": {},
+      "ghcr.io/devcontainers-contrib/features/postgres-asdf:1": {},
+      "ghcr.io/itsmechlark/features/redis-server:1": {}
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "dbaeumer.vscode-eslint",
+          "esbenp.prettier-vscode",
+          "firsttris.vscode-jest-runner",
+          "apollographql.vscode-apollo",
+          "GitHub.copilot",
+          "mikestead.dotenv",
+          "hashicorp.terraform",
+          "Prisma.prisma",
+          "redhat.vscode-yaml",
+          "humao.rest-client",
+          "gruntfuggly.todo-tree",
+          "ms-kubernetes-tools.vscode-kubernetes-tools",
+          "DotJoshJohnson.xml",
+          "MS-vsliveshare.vsliveshare",
+          "mutantdino.resourcemonitor",
+          "rangav.vscode-thunder-client",
+          "DavidAnson.vscode-markdownlint",
+          "eamodio.gitlens",
+          "GraphQL.vscode-graphql",
+          "capaj.graphql-codegen-vscode",
+          "figma.figma-vscode-extension",
+          "formulahendry.docker-explorer",
+          "augustocdias.tasks-shell-input",
+          "rioj7.command-variable",
+          "GitHub.vscode-pull-request-github",
+          "rvest.vs-code-prettier-eslint",
+          "Codecov.codecov",
+          "mtxr.sqltools",
+          "ms-python.python",
+          "mindaro.mindaro",
+          "wayou.vscode-todo-highlight",
+          "nrwl.angular-console"
+        ],
+        "settings": {
+          "typescript.tsdk": "node_modules/typescript/lib",
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": false,
+          "[typescript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true
+          },
+          "[typescriptreact]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true
+          },
+          "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+          },
+          "[xml]": {
+            "editor.defaultFormatter": "DotJoshJohnson.xml"
+          },
+          "[terraform-vars]": {
+            "editor.defaultFormatter": "hashicorp.terraform"
+          },
+          "[prisma]": {
+            "editor.defaultFormatter": "Prisma.prisma"
+          },
+          "terminal.integrated.defaultProfile.linux": "zsh"
+        }
+      }
+    },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postStartCommand": "./.devcontainer/post-start.sh",
+    "postCreateCommand": "./.devcontainer/post-create.sh",
+    // Configure tool-specific properties.
+    // "customizations": {},
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
+    "mounts": [
+      "source=${localEnv:HOME}/Projects/Monorepo/libs/design-system,target=${containerWorkspaceFolder}/libs/design-system,type=bind,consistency=cached",
+      "source=${localEnv:HOME}/.config/gcloud,target=/home/node/.config/gcloud,type=bind,consistency=cached"
+    ]
+  }
+  
