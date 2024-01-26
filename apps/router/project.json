@@ -1,0 +1,56 @@
+{
+    "name": "app-router",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/router",
+    "projectType": "application",
+    "targets": {
+      "build": {
+        "executor": "nx:run-commands",
+        "options": {
+          "commands": [
+            "rm -rf dist/apps/router",
+            "mkdir -p dist/apps/router",
+            "npx wgc router compose -i apps/router/supergraph.config.yaml -o dist/apps/router/config.json",
+            "cp apps/router/router.yaml dist/apps/router/router.yaml"
+          ],
+          "parallel": false
+        }
+      },
+      "serve": {
+        "executor": "nx:run-commands",
+        "options": {
+          "commands": [
+            "ROUTER_CONFIG_PATH=/workspaces/wundergraph-subscriptions-crash-repro/dist/apps/router/config.json CONFIG_PATH=/workspaces/wundergraph-subscriptions-crash-repro/dist/apps/router/router.yaml tmp/wondergraph/router"
+          ],
+          "parallel": false
+        },
+        "dependsOn": ["build"]
+      },
+      "semantic-release": {
+        "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+        "options": {
+          "plugins": [
+            [
+              "@tryon-technology/semantic-release-container",
+              {
+                "context": "${WORKSPACE_DIR}",
+                "containerfile": "${PROJECT_DIR}/Containerfile",
+                "name": "app-router",
+                "registry": "gitlab.aerialytic.ai:5050/aerialytic/infrastructure/kubernetes",
+                "provenance": false,
+                "skipLogin": true
+              }
+            ],
+            [
+              "@semantic-release/exec",
+              {
+                "publishCmd": "${WORKSPACE_DIR}/scripts/gitlab/pipelines/start.sh ${nextRelease.version} ${branch.channel}"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    "tags": ["graphql"]
+  }
+  

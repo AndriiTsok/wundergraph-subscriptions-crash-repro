@@ -1,0 +1,60 @@
+{
+  "name": "subgraph-node",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/subgraph-node/src",
+  "projectType": "application",
+  "targets": {
+    "graphql:generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "graphql-codegen",
+        "cwd": "graphql/node"
+      }
+    },
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/subgraph-node",
+        "main": "apps/subgraph-node/src/main.ts",
+        "tsConfig": "apps/subgraph-node/tsconfig.app.json",
+        "assets": ["apps/subgraph-node/src/assets"],
+        "webpackConfig": "apps/subgraph-node/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "subgraph-node:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "subgraph-node:build:development"
+        },
+        "production": {
+          "buildTarget": "subgraph-node:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/subgraph-node/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

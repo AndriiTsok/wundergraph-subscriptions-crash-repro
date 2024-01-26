@@ -1,0 +1,45 @@
+supergraph:
+  listen: 0.0.0.0:${env.PORT:-80}
+  introspection: true
+health_check:
+  listen: 0.0.0.0:8088
+sandbox:
+  enabled: true
+homepage:
+  enabled: false
+
+headers:
+  all:
+    request:
+      - op: 'propagate'
+        matching: .*
+
+cors:
+  allow_origins: ['*']
+  allow_methods:
+    - HEAD
+    - GET
+    - POST
+  allow_headers:
+    - Origin
+    - Content-Length
+    - Content-Type
+  allow_credentials: true
+  max_age_minutes: 5m
+
+include_subgraph_errors:
+  all: ${env.INCLUDE_SUBGRAPH_ERRORS:-false}
+override_subgraph_url:
+  node: '${env.NODE_SUBGRAPH_HOST_URL:-http://localhost:3801}'
+  coverage: '${env.COVERAGE_SUBGRAPH_HOST_URL:-http://localhost:3802}'
+  customer: '${env.CUSTOMER_SUBGRAPH_HOST_URL:-http://localhost:3803}'
+  design: '${env.DESIGN_SUBGRAPH_HOST_URL:-http://localhost:3804}'
+  proposal: '${env.PROPOSAL_SUBGRAPH_HOST_URL:-http://localhost:3805}'
+  property: '${env.PROPERTY_SUBGRAPH_HOST_URL:-http://localhost:3806}'
+  utility-profile: '${env.UTILITY_PROFILE_SUBGRAPH_HOST_URL:-http://localhost:3807}'
+  address: '${env.ADDRESS_SUBGRAPH_HOST_URL:-http://localhost:3808}'
+
+events:
+  sources:
+    - provider: NATS
+      url: 'nats://0.0.0.0:4222'

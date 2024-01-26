@@ -1,0 +1,53 @@
+{
+  "name": "subgraph-b",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/subgraph-b/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/subgraph-b",
+        "main": "apps/subgraph-b/src/main.ts",
+        "tsConfig": "apps/subgraph-b/tsconfig.app.json",
+        "assets": ["apps/subgraph-b/src/assets"],
+        "webpackConfig": "apps/subgraph-b/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "subgraph-b:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "subgraph-b:build:development"
+        },
+        "production": {
+          "buildTarget": "subgraph-b:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/subgraph-b/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

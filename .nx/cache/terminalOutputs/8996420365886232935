@@ -1,0 +1,13 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 2.11 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/subgraph-node/src/app/schema.ts:[32m[1m16:49[22m[39m[1m[39m[22m
+[90mTS2322: [39mType 'number' is not assignable to type 'GraphQLResolverMap<any>'.
+  [0m [90m 14 |[39m [32m`[39m[33m;[39m[0m
+  [0m [90m 15 |[39m[0m
+  [0m[31m[1m>[22m[39m[90m 16 |[39m [36mconst[39m schema [33m=[39m buildSubgraphSchema([{ typeDefs[33m,[39m resolvers }])[33m;[39m[0m
+  [0m [90m    |[39m                                                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+  [0m [90m 17 |[39m[0m
+  [0m [90m 18 |[39m [36mexport[39m [36mdefault[39m schema[33m;[39m[0m
+  [0m [90m 19 |[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (94b152c8bd4e72a7)
