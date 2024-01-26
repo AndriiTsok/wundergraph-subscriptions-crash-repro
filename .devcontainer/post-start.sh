@@ -18,6 +18,8 @@ curl -sf https://binaries.nats.dev/nats-io/natscli/nats@latest | sh && sudo mv n
 # YARN
 yarn
 
+npm i -g nx wgc
+
 # Download Wundergraph Router
 npx wgc router download-binary -o ./tmp/wondergraph
 
