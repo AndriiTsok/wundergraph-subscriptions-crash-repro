@@ -11,15 +11,13 @@ pg_ctl start
 
 # NATS
 export NATS_VERSION="2.10.9" && \
-sudo apt-get update && \
+cd tmp && \
 wget https://github.com/nats-io/nats-server/releases/download/v$NATS_VERSION/nats-server-v$NATS_VERSION-linux-amd64.tar.gz && \
 tar -xzf nats-server-v$NATS_VERSION-linux-amd64.tar.gz && \
-sudo mv nats-server-v$NATS_VERSION-linux-amd64/nats-server /usr/local/bin/ && \
-sudo apt-get install -y python3 python3-pip && \
-pip3 install nats-py
+sudo mv nats-server-v$NATS_VERSION-linux-amd64/nats-server /usr/local/bin/ 
 
-curl -sf https://binaries.nats.dev/nats-io/natscli/nats@latest | sh
-sudo mv nats /usr/local/bin/
+
+curl -sf https://binaries.nats.dev/nats-io/natscli/nats@latest | sh && sudo mv nats /usr/local/bin/
 
 # YARN
 yarn
