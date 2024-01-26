@@ -1,18 +1,18 @@
 {
   "run": {
-    "command": "nx build subgraph-node",
-    "startTime": "2024-01-26T06:13:48.460Z",
-    "endTime": "2024-01-26T06:13:53.245Z",
+    "command": "nx graphql:generate subgraph-node",
+    "startTime": "2024-01-26T06:25:13.925Z",
+    "endTime": "2024-01-26T06:25:14.097Z",
     "inner": false
   },
   "tasks": [
     {
-      "taskId": "subgraph-node:build:production",
-      "target": "build",
+      "taskId": "subgraph-node:graphql:generate",
+      "target": "graphql:generate",
       "projectName": "subgraph-node",
-      "hash": "2901821665464513234",
-      "startTime": "2024-01-26T06:13:48.469Z",
-      "endTime": "2024-01-26T06:13:53.244Z",
+      "hash": "14582850264862606164",
+      "startTime": "2024-01-26T06:25:13.935Z",
+      "endTime": "2024-01-26T06:25:14.097Z",
       "params": "",
       "cacheStatus": "cache-miss",
       "status": 1

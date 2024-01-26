@@ -1,3 +1,14 @@
-const resolvers = 1;
+import { Resolvers } from './graphql';
 
-// export default resolvers: Resolver
+const resolvers: Resolvers = {
+  Query: {
+    node: (parent, args) => {
+      return {
+        id: args.id,
+        __typename: 'Customer',
+      };
+    },
+  },
+};
+
+export default resolvers;

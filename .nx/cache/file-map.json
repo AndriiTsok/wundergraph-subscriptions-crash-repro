@@ -100,8 +100,6 @@
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
-    "graphql-cli": "^4.1.0",
-    "graphql-codegen": "^0.4.0",
     "husky": "^8.0.3",
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
@@ -118,45 +116,18 @@
   "nxJsonPlugins": [],
   "fileMap": {
     "projectFileMap": {
-      "subgraph-a": [
+      "app-router": [
         {
-          "file": "apps/subgraph-a/.eslintrc.json",
-          "hash": "13800677001662881425"
+          "file": "apps/router/project.json",
+          "hash": "4408573659108699584"
         },
         {
-          "file": "apps/subgraph-a/Dockerfile",
-          "hash": "18408854143086330175"
+          "file": "apps/router/router.yaml",
+          "hash": "16331416998056500766"
         },
         {
-          "file": "apps/subgraph-a/jest.config.ts",
-          "hash": "2104223256391718612"
-        },
-        {
-          "file": "apps/subgraph-a/project.json",
-          "hash": "6975426611455398326"
-        },
-        {
-          "file": "apps/subgraph-a/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/subgraph-a/src/main.ts",
-          "hash": "12003555863464044675",
-          "deps": [
-            "npm:express"
-          ]
-        },
-        {
-          "file": "apps/subgraph-a/tsconfig.app.json",
-          "hash": "1558509971940032459"
-        },
-        {
-          "file": "apps/subgraph-a/tsconfig.json",
-          "hash": "3490524966360018312"
-        },
-        {
-          "file": "apps/subgraph-a/tsconfig.spec.json",
-          "hash": "11550347367511341917"
+          "file": "apps/router/supergraph.config.yaml",
+          "hash": "2662255838170761129"
         }
       ],
       "subgraph-b": [
@@ -204,6 +175,47 @@
           ]
         }
       ],
+      "subgraph-a": [
+        {
+          "file": "apps/subgraph-a/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "apps/subgraph-a/Dockerfile",
+          "hash": "18408854143086330175"
+        },
+        {
+          "file": "apps/subgraph-a/jest.config.ts",
+          "hash": "2104223256391718612"
+        },
+        {
+          "file": "apps/subgraph-a/project.json",
+          "hash": "6975426611455398326"
+        },
+        {
+          "file": "apps/subgraph-a/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/subgraph-a/src/main.ts",
+          "hash": "12003555863464044675",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/subgraph-a/tsconfig.app.json",
+          "hash": "1558509971940032459"
+        },
+        {
+          "file": "apps/subgraph-a/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/subgraph-a/tsconfig.spec.json",
+          "hash": "11550347367511341917"
+        }
+      ],
       "subgraph-node": [
         {
           "file": "apps/subgraph-node/.eslintrc.json",
@@ -219,11 +231,18 @@
         },
         {
           "file": "apps/subgraph-node/project.json",
-          "hash": "10791176335581649184"
+          "hash": "5832313654386702965"
         },
         {
           "file": "apps/subgraph-node/src/app/context.ts",
           "hash": "8668231047474593970",
+          "deps": [
+            "npm:graphql"
+          ]
+        },
+        {
+          "file": "apps/subgraph-node/src/app/graphql.ts",
+          "hash": "18316206927501509398",
           "deps": [
             "npm:graphql"
           ]
@@ -234,7 +253,7 @@
         },
         {
           "file": "apps/subgraph-node/src/app/resolvers.ts",
-          "hash": "11457901117059139705"
+          "hash": "12327660286044106307"
         },
         {
           "file": "apps/subgraph-node/src/app/schema.ts",
@@ -279,20 +298,6 @@
           "deps": [
             "npm:@nx/webpack"
           ]
-        }
-      ],
-      "app-router": [
-        {
-          "file": "apps/router/project.json",
-          "hash": "4408573659108699584"
-        },
-        {
-          "file": "apps/router/router.yaml",
-          "hash": "16331416998056500766"
-        },
-        {
-          "file": "apps/router/supergraph.config.yaml",
-          "hash": "2662255838170761129"
         }
       ]
     },
@@ -359,7 +364,7 @@
       },
       {
         "file": "package.json",
-        "hash": "3440954988422255729"
+        "hash": "17621652478739249936"
       },
       {
         "file": "tsconfig.base.json",
@@ -367,7 +372,7 @@
       },
       {
         "file": "yarn.lock",
-        "hash": "11862173946653789199"
+        "hash": "7381287189948624994"
       }
     ]
   }
