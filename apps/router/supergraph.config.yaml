@@ -1,34 +1,14 @@
 federation_version: =2.4.8
 subgraphs:
-  - name: node
+  - name: subgraph-node
     routing_url: http://localhost:3801
     schema:
-      file: ../node/src/schema.graphql
-  - name: coverage
+      file: ../subgraph-node/src/schema.graphql
+  - name: subgraph-a
     routing_url: http://localhost:3802
     schema:
-      file: ../coverage/src/schema.graphql
-  - name: customer
+      file: ../subgraph-a/src/schema.graphql
+  - name: subgraph-b
     routing_url: http://localhost:3803
     schema:
-      file: ../customer/src/schema.graphql
-  - name: design
-    routing_url: http://localhost:3804
-    schema:
-      file: ../design/src/schema.graphql
-  - name: proposal
-    routing_url: http://localhost:3805
-    schema:
-      file: ../proposal/src/schema.graphql
-  - name: property
-    routing_url: http://localhost:3806
-    schema:
-      file: ../property/src/schema.graphql
-  - name: utility-profile
-    routing_url: http://localhost:3807
-    schema:
-      file: ../utility-profile/src/schema.graphql
-  - name: address
-    routing_url: http://localhost:3808
-    schema:
-      file: ../address/src/schema.graphql
+      file: ../subgraph-b/src/schema.graphql

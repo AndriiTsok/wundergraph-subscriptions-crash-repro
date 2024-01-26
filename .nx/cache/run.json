@@ -1,18 +1,29 @@
 {
   "run": {
-    "command": "nx graphql:generate subgraph-node",
-    "startTime": "2024-01-26T06:25:13.925Z",
-    "endTime": "2024-01-26T06:25:14.097Z",
+    "command": "nx serve apps-router",
+    "startTime": "2024-01-26T06:52:43.501Z",
+    "endTime": "2024-01-26T06:52:45.615Z",
     "inner": false
   },
   "tasks": [
     {
-      "taskId": "subgraph-node:graphql:generate",
-      "target": "graphql:generate",
-      "projectName": "subgraph-node",
-      "hash": "14582850264862606164",
-      "startTime": "2024-01-26T06:25:13.935Z",
-      "endTime": "2024-01-26T06:25:14.097Z",
+      "taskId": "apps-router:build",
+      "target": "build",
+      "projectName": "apps-router",
+      "hash": "7454487266565495038",
+      "startTime": "2024-01-26T06:52:43.510Z",
+      "endTime": "2024-01-26T06:52:45.354Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "apps-router:serve",
+      "target": "serve",
+      "projectName": "apps-router",
+      "hash": "8425207204236085859",
+      "startTime": "2024-01-26T06:52:45.355Z",
+      "endTime": "2024-01-26T06:52:45.615Z",
       "params": "",
       "cacheStatus": "cache-miss",
       "status": 1

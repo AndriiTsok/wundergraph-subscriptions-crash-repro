@@ -4,6 +4,13 @@
   "sourceRoot": "apps/subgraph-a/src",
   "projectType": "application",
   "targets": {
+    "graphql:generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "graphql-code-generator --config codegen.yml",
+        "cwd": "apps/subgraph-node"
+      }
+    },
     "build": {
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
@@ -15,7 +22,7 @@
         "bundle": false,
         "main": "apps/subgraph-a/src/main.ts",
         "tsConfig": "apps/subgraph-a/tsconfig.app.json",
-        "assets": ["apps/subgraph-a/src/assets"],
+        "assets": ["apps/subgraph-a/src/assets", "apps/subgraph-a/src/schema.graphql"],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,

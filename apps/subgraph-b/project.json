@@ -4,6 +4,13 @@
   "sourceRoot": "apps/subgraph-b/src",
   "projectType": "application",
   "targets": {
+    "graphql:generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "graphql-code-generator --config codegen.yml",
+        "cwd": "apps/subgraph-node"
+      }
+    },
     "build": {
       "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
@@ -14,7 +21,7 @@
         "outputPath": "dist/apps/subgraph-b",
         "main": "apps/subgraph-b/src/main.ts",
         "tsConfig": "apps/subgraph-b/tsconfig.app.json",
-        "assets": ["apps/subgraph-b/src/assets"],
+        "assets": ["apps/subgraph-b/src/assets", "apps/subgraph-b/src/schema.graphql"],
         "webpackConfig": "apps/subgraph-b/webpack.config.js"
       },
       "configurations": {

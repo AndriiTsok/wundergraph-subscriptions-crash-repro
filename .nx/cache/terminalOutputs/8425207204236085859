@@ -1,0 +1,2 @@
+/bin/sh: 1: tmp/wondergraph/router: not found
+Warning: run-commands command "ROUTER_CONFIG_PATH=/workspaces/wundergraph-subscriptions-crash-repro/dist/apps/router/config.json CONFIG_PATH=/workspaces/wundergraph-subscriptions-crash-repro/dist/apps/router/router.yaml tmp/wondergraph/router" exited with non-zero status code

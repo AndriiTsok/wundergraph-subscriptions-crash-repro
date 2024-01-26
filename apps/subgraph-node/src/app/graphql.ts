@@ -29,6 +29,11 @@ export type Node = {
   id: Scalars['ID']['output'];
 };
 
+export type Product = Node & {
+  __typename?: 'Product';
+  id: Scalars['ID']['output'];
+};
+
 export type Query = {
   __typename?: 'Query';
   node?: Maybe<Node>;
@@ -131,7 +136,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping of interface types */
 export type ResolversInterfaceTypes<RefType extends Record<string, unknown>> = ResolversObject<{
-  Node: ( Partial<Customer> );
+  Node: ( Partial<Customer> ) | ( Partial<Product> );
 }>;
 
 /** Mapping between all available schema types and the resolvers types */
@@ -140,6 +145,7 @@ export type ResolversTypes = ResolversObject<{
   ID: ResolverTypeWrapper<Partial<Scalars['ID']['output']>>;
   DateTime: ResolverTypeWrapper<Partial<Scalars['DateTime']['output']>>;
   Node: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Node']>;
+  Product: ResolverTypeWrapper<Partial<Product>>;
   Query: ResolverTypeWrapper<{}>;
   Subscription: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Partial<Scalars['String']['output']>>;
@@ -152,6 +158,7 @@ export type ResolversParentTypes = ResolversObject<{
   ID: Partial<Scalars['ID']['output']>;
   DateTime: Partial<Scalars['DateTime']['output']>;
   Node: ResolversInterfaceTypes<ResolversParentTypes>['Node'];
+  Product: Partial<Product>;
   Query: {};
   Subscription: {};
   String: Partial<Scalars['String']['output']>;
@@ -175,8 +182,14 @@ export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversT
 }
 
 export type NodeResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Node'] = ResolversParentTypes['Node']> = ResolversObject<{
-  __resolveType: TypeResolveFn<'Customer', ParentType, ContextType>;
+  __resolveType: TypeResolveFn<'Customer' | 'Product', ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+}>;
+
+export type ProductResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Product'] = ResolversParentTypes['Product']> = ResolversObject<{
+  __resolveReference?: ReferenceResolver<Maybe<ResolversTypes['Product']>, { __typename: 'Product' } & GraphQLRecursivePick<ParentType, {"id":true}>, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type QueryResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
@@ -191,6 +204,7 @@ export type Resolvers<ContextType = Context> = ResolversObject<{
   Customer?: CustomerResolvers<ContextType>;
   DateTime?: GraphQLScalarType;
   Node?: NodeResolvers<ContextType>;
+  Product?: ProductResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   Subscription?: SubscriptionResolvers<ContextType>;
 }>;

@@ -1,14 +1,10 @@
-import express from 'express';
+import { ApolloServer } from 'apollo-server';
+import schema from './app/schema';
+import context from './app/context';
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+const server = new ApolloServer({ schema, context });
 
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send({ message: 'Hello API' });
-});
-
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
+const PORT = process.env.PORT || 3000;
+server.listen(PORT).then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
 });

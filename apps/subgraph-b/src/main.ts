@@ -1,21 +1,10 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
+import { ApolloServer } from 'apollo-server';
+import schema from './app/schema';
+import context from './app/context';
 
-import express from 'express';
-import * as path from 'path';
+const server = new ApolloServer({ schema, context });
 
-const app = express();
-
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
-
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to subgraph-b!' });
+const PORT = process.env.PORT || 3000;
+server.listen(PORT).then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
 });
-
-const port = process.env.PORT || 3333;
-const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
-});
-server.on('error', console.error);

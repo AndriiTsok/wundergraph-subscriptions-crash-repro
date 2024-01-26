@@ -1,0 +1,23 @@
+[ [32mwatch[39m ] build succeeded, watching for changes...
+[1m[31mDebugger listening on ws://localhost:9229/4dbf2aba-53c9-4c9e-8e86-3f384c987cae[39m[22m
+[1m[31m[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/4dbf2aba-53c9-4c9e-8e86-3f384c987cae[39m[22m
+[1m[31m[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31mError: ENOENT: no such file or directory, open '/workspaces/wundergraph-subscriptions-crash-repro/dist/apps/subgraph-a/apps/subgraph-a/src/app/schema.graphql'[39m[22m
+[1m[31m    at Object.openSync (node:fs:581:18)[39m[22m
+[1m[31m    at readFileSync (node:fs:457:35)[39m[22m
+[1m[31m    at Object.<anonymous> (/workspaces/wundergraph-subscriptions-crash-repro/apps/subgraph-a/src/app/schema.ts:8:22)[39m[22m
+[1m[31m    at Module._compile (node:internal/modules/cjs/loader:1376:14)[39m[22m
+[1m[31m    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1435:10)[39m[22m
+[1m[31m    at Module.load (node:internal/modules/cjs/loader:1207:32)[39m[22m
+[1m[31m    at Function.Module._load (node:internal/modules/cjs/loader:1023:12)[39m[22m
+[1m[31m    at Function.Module._load (/workspaces/wundergraph-subscriptions-crash-repro/node_modules/@nx/js/src/executors/node/node-with-require-overrides.js:18:31)[39m[22m
+[1m[31m    at Module.require (node:internal/modules/cjs/loader:1235:19)[39m[22m
+[1m[31m    at require (node:internal/modules/helpers:176:18)[39m[22m
+[1m[31m[39m[22m
+
+[36m>[39m [7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+[1m[31mWatch error: Daemon closed the connection[39m[22m

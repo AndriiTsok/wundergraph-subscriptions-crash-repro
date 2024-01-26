@@ -7,8 +7,8 @@
     "graphql:generate": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "graphql-code-generator",
-        "cwd": "graphql/node"
+        "command": "graphql-code-generator --config codegen.yml",
+        "cwd": "apps/subgraph-node"
       }
     },
     "build": {
@@ -21,7 +21,7 @@
         "outputPath": "dist/apps/subgraph-node",
         "main": "apps/subgraph-node/src/main.ts",
         "tsConfig": "apps/subgraph-node/tsconfig.app.json",
-        "assets": ["apps/subgraph-node/src/assets"],
+        "assets": ["apps/subgraph-node/src/assets", "apps/subgraph-node/src/schema.graphql"],
         "webpackConfig": "apps/subgraph-node/webpack.config.js"
       },
       "configurations": {

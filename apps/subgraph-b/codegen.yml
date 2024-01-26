@@ -1,0 +1,13 @@
+generates:
+  src/app/graphql.ts:
+    schema: src/schema.graphql
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - typescript
+      - typescript-resolvers
+    config:
+      federation: true
+      useIndexSignature: true
+      defaultMapper: Partial<{T}>
+      contextType: ./models#Context

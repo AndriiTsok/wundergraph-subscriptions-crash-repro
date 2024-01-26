@@ -116,106 +116,6 @@
   "nxJsonPlugins": [],
   "fileMap": {
     "projectFileMap": {
-      "app-router": [
-        {
-          "file": "apps/router/project.json",
-          "hash": "4408573659108699584"
-        },
-        {
-          "file": "apps/router/router.yaml",
-          "hash": "16331416998056500766"
-        },
-        {
-          "file": "apps/router/supergraph.config.yaml",
-          "hash": "2662255838170761129"
-        }
-      ],
-      "subgraph-b": [
-        {
-          "file": "apps/subgraph-b/.eslintrc.json",
-          "hash": "13800677001662881425"
-        },
-        {
-          "file": "apps/subgraph-b/jest.config.ts",
-          "hash": "6350368215460740864"
-        },
-        {
-          "file": "apps/subgraph-b/project.json",
-          "hash": "10132497819328109160"
-        },
-        {
-          "file": "apps/subgraph-b/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/subgraph-b/src/main.ts",
-          "hash": "3172086812840777684",
-          "deps": [
-            "npm:express",
-            "npm:path"
-          ]
-        },
-        {
-          "file": "apps/subgraph-b/tsconfig.app.json",
-          "hash": "6758816428596401805"
-        },
-        {
-          "file": "apps/subgraph-b/tsconfig.json",
-          "hash": "3490524966360018312"
-        },
-        {
-          "file": "apps/subgraph-b/tsconfig.spec.json",
-          "hash": "11550347367511341917"
-        },
-        {
-          "file": "apps/subgraph-b/webpack.config.js",
-          "hash": "5708803163266262522",
-          "deps": [
-            "npm:@nx/webpack"
-          ]
-        }
-      ],
-      "subgraph-a": [
-        {
-          "file": "apps/subgraph-a/.eslintrc.json",
-          "hash": "13800677001662881425"
-        },
-        {
-          "file": "apps/subgraph-a/Dockerfile",
-          "hash": "18408854143086330175"
-        },
-        {
-          "file": "apps/subgraph-a/jest.config.ts",
-          "hash": "2104223256391718612"
-        },
-        {
-          "file": "apps/subgraph-a/project.json",
-          "hash": "6975426611455398326"
-        },
-        {
-          "file": "apps/subgraph-a/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/subgraph-a/src/main.ts",
-          "hash": "12003555863464044675",
-          "deps": [
-            "npm:express"
-          ]
-        },
-        {
-          "file": "apps/subgraph-a/tsconfig.app.json",
-          "hash": "1558509971940032459"
-        },
-        {
-          "file": "apps/subgraph-a/tsconfig.json",
-          "hash": "3490524966360018312"
-        },
-        {
-          "file": "apps/subgraph-a/tsconfig.spec.json",
-          "hash": "11550347367511341917"
-        }
-      ],
       "subgraph-node": [
         {
           "file": "apps/subgraph-node/.eslintrc.json",
@@ -231,7 +131,7 @@
         },
         {
           "file": "apps/subgraph-node/project.json",
-          "hash": "5832313654386702965"
+          "hash": "9552066342321986663"
         },
         {
           "file": "apps/subgraph-node/src/app/context.ts",
@@ -242,7 +142,7 @@
         },
         {
           "file": "apps/subgraph-node/src/app/graphql.ts",
-          "hash": "18316206927501509398",
+          "hash": "15321478787277564663",
           "deps": [
             "npm:graphql"
           ]
@@ -278,7 +178,7 @@
         },
         {
           "file": "apps/subgraph-node/src/schema.graphql",
-          "hash": "5676373635253128973"
+          "hash": "12138065968265894165"
         },
         {
           "file": "apps/subgraph-node/tsconfig.app.json",
@@ -294,6 +194,185 @@
         },
         {
           "file": "apps/subgraph-node/webpack.config.js",
+          "hash": "5708803163266262522",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ],
+      "apps-router": [
+        {
+          "file": "apps/router/project.json",
+          "hash": "8700598366498439432"
+        },
+        {
+          "file": "apps/router/router.yaml",
+          "hash": "16331416998056500766"
+        },
+        {
+          "file": "apps/router/supergraph.config.yaml",
+          "hash": "6864002675419540116"
+        }
+      ],
+      "subgraph-a": [
+        {
+          "file": "apps/subgraph-a/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "apps/subgraph-a/Dockerfile",
+          "hash": "18408854143086330175"
+        },
+        {
+          "file": "apps/subgraph-a/codegen.yml",
+          "hash": "17668387712281378233"
+        },
+        {
+          "file": "apps/subgraph-a/jest.config.ts",
+          "hash": "2104223256391718612"
+        },
+        {
+          "file": "apps/subgraph-a/project.json",
+          "hash": "7180725467603605924"
+        },
+        {
+          "file": "apps/subgraph-a/src/app/context.ts",
+          "hash": "8668231047474593970",
+          "deps": [
+            "npm:graphql"
+          ]
+        },
+        {
+          "file": "apps/subgraph-a/src/app/graphql.ts",
+          "hash": "18316206927501509398",
+          "deps": [
+            "npm:graphql"
+          ]
+        },
+        {
+          "file": "apps/subgraph-a/src/app/models.ts",
+          "hash": "4548975421629425943"
+        },
+        {
+          "file": "apps/subgraph-a/src/app/resolvers.ts",
+          "hash": "6066156116388351937"
+        },
+        {
+          "file": "apps/subgraph-a/src/app/schema.ts",
+          "hash": "16596814788186338659",
+          "deps": [
+            "npm:@apollo/subgraph",
+            "npm:apollo-server",
+            "npm:fs",
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/subgraph-a/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/subgraph-a/src/main.ts",
+          "hash": "11790984237181769223",
+          "deps": [
+            "npm:apollo-server"
+          ]
+        },
+        {
+          "file": "apps/subgraph-a/src/schema.graphql",
+          "hash": "17034700755397551932"
+        },
+        {
+          "file": "apps/subgraph-a/tsconfig.app.json",
+          "hash": "1558509971940032459"
+        },
+        {
+          "file": "apps/subgraph-a/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/subgraph-a/tsconfig.spec.json",
+          "hash": "11550347367511341917"
+        }
+      ],
+      "subgraph-b": [
+        {
+          "file": "apps/subgraph-b/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "apps/subgraph-b/codegen.yml",
+          "hash": "17668387712281378233"
+        },
+        {
+          "file": "apps/subgraph-b/jest.config.ts",
+          "hash": "6350368215460740864"
+        },
+        {
+          "file": "apps/subgraph-b/project.json",
+          "hash": "7967390308343639299"
+        },
+        {
+          "file": "apps/subgraph-b/src/app/context.ts",
+          "hash": "8668231047474593970",
+          "deps": [
+            "npm:graphql"
+          ]
+        },
+        {
+          "file": "apps/subgraph-b/src/app/graphql.ts",
+          "hash": "18316206927501509398",
+          "deps": [
+            "npm:graphql"
+          ]
+        },
+        {
+          "file": "apps/subgraph-b/src/app/models.ts",
+          "hash": "4548975421629425943"
+        },
+        {
+          "file": "apps/subgraph-b/src/app/resolvers.ts",
+          "hash": "12235225014534082500"
+        },
+        {
+          "file": "apps/subgraph-b/src/app/schema.ts",
+          "hash": "16596814788186338659",
+          "deps": [
+            "npm:@apollo/subgraph",
+            "npm:apollo-server",
+            "npm:fs",
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/subgraph-b/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/subgraph-b/src/main.ts",
+          "hash": "11790984237181769223",
+          "deps": [
+            "npm:apollo-server"
+          ]
+        },
+        {
+          "file": "apps/subgraph-b/src/schema.graphql",
+          "hash": "11466930796699052852"
+        },
+        {
+          "file": "apps/subgraph-b/tsconfig.app.json",
+          "hash": "6758816428596401805"
+        },
+        {
+          "file": "apps/subgraph-b/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/subgraph-b/tsconfig.spec.json",
+          "hash": "11550347367511341917"
+        },
+        {
+          "file": "apps/subgraph-b/webpack.config.js",
           "hash": "5708803163266262522",
           "deps": [
             "npm:@nx/webpack"
@@ -365,6 +444,10 @@
       {
         "file": "package.json",
         "hash": "17621652478739249936"
+      },
+      {
+        "file": "tmp/subgraph-a/main-with-require-overrides.js",
+        "hash": "8518925168385053731"
       },
       {
         "file": "tsconfig.base.json",

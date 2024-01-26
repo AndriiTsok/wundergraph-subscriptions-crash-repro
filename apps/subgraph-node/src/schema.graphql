@@ -6,6 +6,10 @@ interface Node @key(fields: "id") {
   id: ID!
 }
 
+type Product implements Node @key(fields: "id") {
+  id: ID!
+}
+
 type Customer implements Node @key(fields: "id") {
   id: ID!
 }

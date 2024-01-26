@@ -1,5 +1,5 @@
 {
-    "name": "app-router",
+    "name": "apps-router",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "apps/router",
     "projectType": "application",
@@ -25,30 +25,6 @@
           "parallel": false
         },
         "dependsOn": ["build"]
-      },
-      "semantic-release": {
-        "executor": "@theunderscorer/nx-semantic-release:semantic-release",
-        "options": {
-          "plugins": [
-            [
-              "@tryon-technology/semantic-release-container",
-              {
-                "context": "${WORKSPACE_DIR}",
-                "containerfile": "${PROJECT_DIR}/Containerfile",
-                "name": "app-router",
-                "registry": "gitlab.aerialytic.ai:5050/aerialytic/infrastructure/kubernetes",
-                "provenance": false,
-                "skipLogin": true
-              }
-            ],
-            [
-              "@semantic-release/exec",
-              {
-                "publishCmd": "${WORKSPACE_DIR}/scripts/gitlab/pipelines/start.sh ${nextRelease.version} ${branch.channel}"
-              }
-            ]
-          ]
-        }
       }
     },
     "tags": ["graphql"]

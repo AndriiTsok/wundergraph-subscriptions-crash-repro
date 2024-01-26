@@ -13,8 +13,8 @@
           "graphql:generate": {
             "executor": "nx:run-commands",
             "options": {
-              "command": "graphql-code-generator",
-              "cwd": "graphql/node"
+              "command": "graphql-code-generator --config codegen.yml",
+              "cwd": "apps/subgraph-node"
             },
             "configurations": {}
           },
@@ -39,7 +39,8 @@
               "main": "apps/subgraph-node/src/main.ts",
               "tsConfig": "apps/subgraph-node/tsconfig.app.json",
               "assets": [
-                "apps/subgraph-node/src/assets"
+                "apps/subgraph-node/src/assets",
+                "apps/subgraph-node/src/schema.graphql"
               ],
               "webpackConfig": "apps/subgraph-node/webpack.config.js"
             },
@@ -115,6 +116,14 @@
         "sourceRoot": "apps/subgraph-a/src",
         "projectType": "application",
         "targets": {
+          "graphql:generate": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "graphql-code-generator --config codegen.yml",
+              "cwd": "apps/subgraph-node"
+            },
+            "configurations": {}
+          },
           "build": {
             "cache": true,
             "dependsOn": [
@@ -139,7 +148,8 @@
               "main": "apps/subgraph-a/src/main.ts",
               "tsConfig": "apps/subgraph-a/tsconfig.app.json",
               "assets": [
-                "apps/subgraph-a/src/assets"
+                "apps/subgraph-a/src/assets",
+                "apps/subgraph-a/src/schema.graphql"
               ],
               "generatePackageJson": true,
               "esbuildOptions": {
@@ -239,6 +249,14 @@
         "sourceRoot": "apps/subgraph-b/src",
         "projectType": "application",
         "targets": {
+          "graphql:generate": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "graphql-code-generator --config codegen.yml",
+              "cwd": "apps/subgraph-node"
+            },
+            "configurations": {}
+          },
           "build": {
             "cache": true,
             "dependsOn": [
@@ -260,7 +278,8 @@
               "main": "apps/subgraph-b/src/main.ts",
               "tsConfig": "apps/subgraph-b/tsconfig.app.json",
               "assets": [
-                "apps/subgraph-b/src/assets"
+                "apps/subgraph-b/src/assets",
+                "apps/subgraph-b/src/schema.graphql"
               ],
               "webpackConfig": "apps/subgraph-b/webpack.config.js"
             },
@@ -326,12 +345,12 @@
         "implicitDependencies": []
       }
     },
-    "app-router": {
-      "name": "app-router",
+    "apps-router": {
+      "name": "apps-router",
       "type": "app",
       "data": {
         "root": "apps/router",
-        "name": "app-router",
+        "name": "apps-router",
         "$schema": "../../node_modules/nx/schemas/project-schema.json",
         "sourceRoot": "apps/router",
         "projectType": "application",
@@ -368,31 +387,6 @@
             "dependsOn": [
               "build"
             ],
-            "configurations": {}
-          },
-          "semantic-release": {
-            "executor": "@theunderscorer/nx-semantic-release:semantic-release",
-            "options": {
-              "plugins": [
-                [
-                  "@tryon-technology/semantic-release-container",
-                  {
-                    "context": "${WORKSPACE_DIR}",
-                    "containerfile": "${PROJECT_DIR}/Containerfile",
-                    "name": "app-router",
-                    "registry": "gitlab.aerialytic.ai:5050/aerialytic/infrastructure/kubernetes",
-                    "provenance": false,
-                    "skipLogin": true
-                  }
-                ],
-                [
-                  "@semantic-release/exec",
-                  {
-                    "publishCmd": "${WORKSPACE_DIR}/scripts/gitlab/pipelines/start.sh ${nextRelease.version} ${branch.channel}"
-                  }
-                ]
-              ]
-            },
             "configurations": {}
           }
         },
@@ -23480,14 +23474,34 @@
     "subgraph-a": [
       {
         "source": "subgraph-a",
-        "target": "npm:express",
+        "target": "npm:graphql",
+        "type": "static"
+      },
+      {
+        "source": "subgraph-a",
+        "target": "npm:@apollo/subgraph",
+        "type": "static"
+      },
+      {
+        "source": "subgraph-a",
+        "target": "npm:apollo-server",
         "type": "static"
       }
     ],
     "subgraph-b": [
       {
         "source": "subgraph-b",
-        "target": "npm:express",
+        "target": "npm:graphql",
+        "type": "static"
+      },
+      {
+        "source": "subgraph-b",
+        "target": "npm:@apollo/subgraph",
+        "type": "static"
+      },
+      {
+        "source": "subgraph-b",
+        "target": "npm:apollo-server",
         "type": "static"
       },
       {
@@ -23496,7 +23510,7 @@
         "type": "static"
       }
     ],
-    "app-router": [],
+    "apps-router": [],
     "npm:@actions/exec": [
       {
         "source": "npm:@actions/exec",
