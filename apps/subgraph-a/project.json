@@ -8,40 +8,25 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "graphql-code-generator --config codegen.yml",
-        "cwd": "apps/subgraph-node"
+        "cwd": "apps/subgraph-a"
       }
     },
     "build": {
-      "executor": "@nx/esbuild:esbuild",
+      "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "platform": "node",
+        "target": "node",
+        "compiler": "tsc",
         "outputPath": "dist/apps/subgraph-a",
-        "format": ["cjs"],
-        "bundle": false,
         "main": "apps/subgraph-a/src/main.ts",
         "tsConfig": "apps/subgraph-a/tsconfig.app.json",
         "assets": ["apps/subgraph-a/src/assets", "apps/subgraph-a/src/schema.graphql"],
-        "generatePackageJson": true,
-        "esbuildOptions": {
-          "sourcemap": true,
-          "outExtension": {
-            ".js": ".js"
-          }
-        }
+        "webpackConfig": "apps/subgraph-a/webpack.config.js"
       },
       "configurations": {
         "development": {},
-        "production": {
-          "generateLockfile": true,
-          "esbuildOptions": {
-            "sourcemap": false,
-            "outExtension": {
-              ".js": ".js"
-            }
-          }
-        }
+        "production": {}
       }
     },
     "serve": {

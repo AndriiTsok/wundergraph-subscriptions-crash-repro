@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { GraphQLResolveInfo } from 'graphql';
 import { Context } from './models';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -8,7 +8,6 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: 
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
-export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string; output: string; }
@@ -16,37 +15,13 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  DateTime: { input: any; output: any; }
   _FieldSet: { input: any; output: any; }
 };
 
-export type Customer = Node & {
+export type Customer = {
   __typename?: 'Customer';
   id: Scalars['ID']['output'];
-};
-
-export type Node = {
-  id: Scalars['ID']['output'];
-};
-
-export type Query = {
-  __typename?: 'Query';
-  node?: Maybe<Node>;
-};
-
-
-export type QueryNodeArgs = {
-  id: Scalars['ID']['input'];
-};
-
-export type Subscription = {
-  __typename?: 'Subscription';
-  customerUpdated: Customer;
-};
-
-
-export type SubscriptionCustomerUpdatedArgs = {
-  id: Scalars['ID']['input'];
+  name: Scalars['String']['output'];
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -129,19 +104,11 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 ) => TResult | Promise<TResult>;
 
 
-/** Mapping of interface types */
-export type ResolversInterfaceTypes<RefType extends Record<string, unknown>> = ResolversObject<{
-  Node: ( Partial<Customer> );
-}>;
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = ResolversObject<{
   Customer: ResolverTypeWrapper<Partial<Customer>>;
   ID: ResolverTypeWrapper<Partial<Scalars['ID']['output']>>;
-  DateTime: ResolverTypeWrapper<Partial<Scalars['DateTime']['output']>>;
-  Node: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Node']>;
-  Query: ResolverTypeWrapper<{}>;
-  Subscription: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Partial<Scalars['String']['output']>>;
   Boolean: ResolverTypeWrapper<Partial<Scalars['Boolean']['output']>>;
 }>;
@@ -150,51 +117,18 @@ export type ResolversTypes = ResolversObject<{
 export type ResolversParentTypes = ResolversObject<{
   Customer: Partial<Customer>;
   ID: Partial<Scalars['ID']['output']>;
-  DateTime: Partial<Scalars['DateTime']['output']>;
-  Node: ResolversInterfaceTypes<ResolversParentTypes>['Node'];
-  Query: {};
-  Subscription: {};
   String: Partial<Scalars['String']['output']>;
   Boolean: Partial<Scalars['Boolean']['output']>;
 }>;
 
-export type EventsSubscribeDirectiveArgs = {
-  topic: Scalars['String']['input'];
-};
-
-export type EventsSubscribeDirectiveResolver<Result, Parent, ContextType = Context, Args = EventsSubscribeDirectiveArgs> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
-
 export type CustomerResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Customer'] = ResolversParentTypes['Customer']> = ResolversObject<{
   __resolveReference?: ReferenceResolver<Maybe<ResolversTypes['Customer']>, { __typename: 'Customer' } & GraphQLRecursivePick<ParentType, {"id":true}>, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-
-export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['DateTime'], any> {
-  name: 'DateTime';
-}
-
-export type NodeResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Node'] = ResolversParentTypes['Node']> = ResolversObject<{
-  __resolveType: TypeResolveFn<'Customer', ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-}>;
-
-export type QueryResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  node?: Resolver<Maybe<ResolversTypes['Node']>, ParentType, ContextType, RequireFields<QueryNodeArgs, 'id'>>;
-}>;
-
-export type SubscriptionResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']> = ResolversObject<{
-  customerUpdated?: SubscriptionResolver<ResolversTypes['Customer'], "customerUpdated", ParentType, ContextType, RequireFields<SubscriptionCustomerUpdatedArgs, 'id'>>;
 }>;
 
 export type Resolvers<ContextType = Context> = ResolversObject<{
   Customer?: CustomerResolvers<ContextType>;
-  DateTime?: GraphQLScalarType;
-  Node?: NodeResolvers<ContextType>;
-  Query?: QueryResolvers<ContextType>;
-  Subscription?: SubscriptionResolvers<ContextType>;
 }>;
 
-export type DirectiveResolvers<ContextType = Context> = ResolversObject<{
-  eventsSubscribe?: EventsSubscribeDirectiveResolver<any, any, ContextType>;
-}>;

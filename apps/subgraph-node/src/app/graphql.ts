@@ -44,16 +44,6 @@ export type QueryNodeArgs = {
   id: Scalars['ID']['input'];
 };
 
-export type Subscription = {
-  __typename?: 'Subscription';
-  customerUpdated: Customer;
-};
-
-
-export type SubscriptionCustomerUpdatedArgs = {
-  id: Scalars['ID']['input'];
-};
-
 export type WithIndex<TObject> = TObject & Record<string, any>;
 export type ResolversObject<TObject> = WithIndex<TObject>;
 
@@ -147,9 +137,8 @@ export type ResolversTypes = ResolversObject<{
   Node: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Node']>;
   Product: ResolverTypeWrapper<Partial<Product>>;
   Query: ResolverTypeWrapper<{}>;
-  Subscription: ResolverTypeWrapper<{}>;
-  String: ResolverTypeWrapper<Partial<Scalars['String']['output']>>;
   Boolean: ResolverTypeWrapper<Partial<Scalars['Boolean']['output']>>;
+  String: ResolverTypeWrapper<Partial<Scalars['String']['output']>>;
 }>;
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -160,16 +149,9 @@ export type ResolversParentTypes = ResolversObject<{
   Node: ResolversInterfaceTypes<ResolversParentTypes>['Node'];
   Product: Partial<Product>;
   Query: {};
-  Subscription: {};
-  String: Partial<Scalars['String']['output']>;
   Boolean: Partial<Scalars['Boolean']['output']>;
+  String: Partial<Scalars['String']['output']>;
 }>;
-
-export type EventsSubscribeDirectiveArgs = {
-  topic: Scalars['String']['input'];
-};
-
-export type EventsSubscribeDirectiveResolver<Result, Parent, ContextType = Context, Args = EventsSubscribeDirectiveArgs> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
 export type CustomerResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Customer'] = ResolversParentTypes['Customer']> = ResolversObject<{
   __resolveReference?: ReferenceResolver<Maybe<ResolversTypes['Customer']>, { __typename: 'Customer' } & GraphQLRecursivePick<ParentType, {"id":true}>, ContextType>;
@@ -196,19 +178,11 @@ export type QueryResolvers<ContextType = Context, ParentType extends ResolversPa
   node?: Resolver<Maybe<ResolversTypes['Node']>, ParentType, ContextType, RequireFields<QueryNodeArgs, 'id'>>;
 }>;
 
-export type SubscriptionResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']> = ResolversObject<{
-  customerUpdated?: SubscriptionResolver<ResolversTypes['Customer'], "customerUpdated", ParentType, ContextType, RequireFields<SubscriptionCustomerUpdatedArgs, 'id'>>;
-}>;
-
 export type Resolvers<ContextType = Context> = ResolversObject<{
   Customer?: CustomerResolvers<ContextType>;
   DateTime?: GraphQLScalarType;
   Node?: NodeResolvers<ContextType>;
   Product?: ProductResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
-  Subscription?: SubscriptionResolvers<ContextType>;
 }>;
 
-export type DirectiveResolvers<ContextType = Context> = ResolversObject<{
-  eventsSubscribe?: EventsSubscribeDirectiveResolver<any, any, ContextType>;
-}>;

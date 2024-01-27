@@ -2359,7 +2359,7 @@ __metadata:
     typescript: "npm:~5.2.2"
     usehooks-ts: "npm:^2.9.1"
     webfontloader: "npm:^1.6.28"
-    wgc: "npm:^0.37.3"
+    wgc: "npm:^0.38.1"
   languageName: unknown
   linkType: soft
 
@@ -9164,30 +9164,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wundergraph/cosmo-connect@npm:0.47.0":
-  version: 0.47.0
-  resolution: "@wundergraph/cosmo-connect@npm:0.47.0"
+"@wundergraph/cosmo-connect@npm:0.49.0":
+  version: 0.49.0
+  resolution: "@wundergraph/cosmo-connect@npm:0.49.0"
   dependencies:
     "@bufbuild/protobuf": "npm:^1.4.1"
     "@connectrpc/connect-query": "npm:^0.6.0"
-  checksum: db14445e9750b91fd0d3deaf71b93689a10f7cdd925a1265fecb513e369f19bf56d7908fa345baf8aee3a1f41548d76de0782e8f4962639eb777e3e372aa789a
+  checksum: ae63e14dbf06e2972a437b5323dc6f5c0df135428b4bf0b0a86f010cd63b7cec6181dce52349bc42ac9cc94d98b2bad5a99991f3685be4e0262d250a9fb4380c
   languageName: node
   linkType: hard
 
-"@wundergraph/cosmo-shared@npm:0.18.1":
-  version: 0.18.1
-  resolution: "@wundergraph/cosmo-shared@npm:0.18.1"
+"@wundergraph/cosmo-shared@npm:0.18.3":
+  version: 0.18.3
+  resolution: "@wundergraph/cosmo-shared@npm:0.18.3"
   dependencies:
     "@graphql-tools/schema": "npm:^8.5.1"
     "@graphql-tools/utils": "npm:^9.2.1"
     "@wundergraph/composition": "npm:0.16.0"
-    "@wundergraph/cosmo-connect": "npm:0.47.0"
+    "@wundergraph/cosmo-connect": "npm:0.49.0"
     graphql: "npm:^16.7.1"
     openai: "npm:^3.3.0"
     pino: "npm:^8.14.1"
     zod: "npm:^3.22.3"
     zod-to-json-schema: "npm:^3.21.4"
-  checksum: 11ce57f5a7d24a55994fbe83cdd783efc15a33da66fdcabf3e8fe688e25be3037ffe67810eedc05fc2d925ac36044341a7517a10cb326c5a63a8fcd1d2d07993
+  checksum: 8e1ce3f415213110d2e448789b41fd45083ee6259a02282a1bbe56e34453d592fc92ad78cfb9b5e5c8b59b11ca6e35e3c66e8023bc67a947bacd2a7dfabc6a82
   languageName: node
   linkType: hard
 
@@ -26501,17 +26501,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wgc@npm:^0.37.3":
-  version: 0.37.3
-  resolution: "wgc@npm:0.37.3"
+"wgc@npm:^0.38.1":
+  version: 0.38.1
+  resolution: "wgc@npm:0.38.1"
   dependencies:
     "@bufbuild/buf": "npm:^1.27.2"
     "@bufbuild/protobuf": "npm:^1.4.1"
     "@connectrpc/connect": "npm:^1.1.3"
     "@connectrpc/connect-node": "npm:^1.1.3"
     "@wundergraph/composition": "npm:0.16.0"
-    "@wundergraph/cosmo-connect": "npm:0.47.0"
-    "@wundergraph/cosmo-shared": "npm:0.18.1"
+    "@wundergraph/cosmo-connect": "npm:0.49.0"
+    "@wundergraph/cosmo-shared": "npm:0.18.3"
     cli-progress: "npm:^3.12.0"
     cli-table3: "npm:^0.6.3"
     commander: "npm:^11.1.0"
@@ -26530,7 +26530,7 @@ __metadata:
     picocolors: "npm:^1.0.0"
   bin:
     wgc: dist/index.js
-  checksum: 41635641b57024deb86ef0539e053ecd40546398d31e7a1c8558f7266c92ffd9fd2d86db6e5cf5c56a3faa8d38afdcaefafb3e8508cda36da471ce26e2db8e43
+  checksum: 538dfd8af7235ca8d663e89cf1b2598c4eddf193823c907fceef5ad08dad8ad0965aaa1dd68733b011015a2e15c5c1e747a7e8437dfd8c4b7e51d052c9761043
   languageName: node
   linkType: hard
 

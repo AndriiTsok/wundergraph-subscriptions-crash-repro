@@ -8,7 +8,7 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "graphql-code-generator --config codegen.yml",
-        "cwd": "apps/subgraph-node"
+        "cwd": "apps/subgraph-b"
       }
     },
     "build": {
