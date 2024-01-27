@@ -120,6 +120,6 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "start": "nx run-many -t serve --all --parallel"
+    "start": "nx run-many -t serve --all --parallel=4"
   }
 }
