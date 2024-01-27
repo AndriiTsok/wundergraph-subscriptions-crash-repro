@@ -1,14 +1,14 @@
 federation_version: =2.4.8
 subgraphs:
   - name: subgraph-node
-    routing_url: http://localhost:3801
+    routing_url: http://0.0.0.0:3801
     schema:
       file: ../subgraph-node/src/schema.graphql
   - name: subgraph-a
-    routing_url: http://localhost:3802
+    routing_url: http://0.0.0.0:3802
     schema:
       file: ../subgraph-a/src/schema.graphql
   - name: subgraph-b
-    routing_url: http://localhost:3803
+    routing_url: http://0.0.0.0:3803
     schema:
       file: ../subgraph-b/src/schema.graphql

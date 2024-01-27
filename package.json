@@ -120,6 +120,6 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "start": "nx run-many -t serve --all --parallel=4"
+    "start": "nx run-many -t graphql:generate --all --parallel=4 --skip-nx-cache && nx run-many -t serve --all --parallel=4 --skip-nx-cache"
   }
 }

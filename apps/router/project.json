@@ -10,8 +10,8 @@
           "commands": [
             "rm -rf dist/apps/router",
             "mkdir -p dist/apps/router",
-            "npx wgc router compose -i apps/router/supergraph.config.yaml -o dist/apps/router/config.json",
-            "cp apps/router/router.yaml dist/apps/router/router.yaml"
+            "npx wgc router compose -i apps/router/supergraph.yaml -o dist/apps/router/config.json",
+            "cp apps/router/config.yaml dist/apps/router/config.yaml"
           ],
           "parallel": false
         }
@@ -20,7 +20,7 @@
         "executor": "nx:run-commands",
         "options": {
           "commands": [
-            "ROUTER_CONFIG_PATH=/workspaces/wundergraph-subscriptions-crash-repro/dist/apps/router/config.json CONFIG_PATH=/workspaces/wundergraph-subscriptions-crash-repro/dist/apps/router/router.yaml tmp/wondergraph/router"
+            "ROUTER_CONFIG_PATH=/workspaces/wundergraph-subscriptions-crash-repro/dist/apps/router/config.json CONFIG_PATH=/workspaces/wundergraph-subscriptions-crash-repro/dist/apps/router/config.yaml tmp/wondergraph/router"
           ],
           "parallel": false
         },

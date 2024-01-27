@@ -20,6 +20,14 @@
       "ghcr.io/devcontainers-contrib/features/postgres-asdf:1": {},
       "ghcr.io/itsmechlark/features/redis-server:1": {}
     },
+    "forwardPorts": [
+      8080, 3801, 3802, 3803
+    ],
+    "portsAttributes": {
+      "8080": {
+        "label": "GraphQL"
+      }
+    },
     "customizations": {
       "vscode": {
         "extensions": [

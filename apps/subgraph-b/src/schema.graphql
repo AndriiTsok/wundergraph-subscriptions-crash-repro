@@ -1,12 +1,6 @@
-directive @eventsSubscribe(topic: String!) on FIELD_DEFINITION
-
 extend type Customer @key(fields: "id") {
   id: ID!
   name: String!
-}
-
-type Subscription {
-  customerUpdated(id: ID!): Customer! @eventsSubscribe(topic: "customerUpdated.{{ args.id }}")
 }
 
 extend schema

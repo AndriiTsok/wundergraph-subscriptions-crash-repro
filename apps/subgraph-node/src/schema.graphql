@@ -1,4 +1,3 @@
-# directive @eventsSubscribe(topic: String!) on FIELD_DEFINITION
 
 scalar DateTime
 
@@ -18,8 +17,9 @@ type Query {
   node(id: ID!): Node
 }
 
+# directive @eventsSubscribe(topic: String!) on FIELD_DEFINITION
 # type Subscription {
-#   customerUpdated(id: ID!): Customer! @eventsSubscribe(topic: "customerUpdated.{{ args.id }}")
+#   customerUpdated(id: ID!): Customer @eventsSubscribe(topic: "customerUpdated.{{ args.id }}")
 # }
 
 extend schema
