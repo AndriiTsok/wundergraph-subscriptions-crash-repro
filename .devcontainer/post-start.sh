@@ -18,14 +18,13 @@ curl -sf https://binaries.nats.dev/nats-io/natscli/nats@latest | sh && sudo mv n
 # YARN
 yarn
 
-npm i -g nx wgc
+npm i -g nx
 
 # Download Wundergraph Router
+rm -rf ./tmp/wondergraph
 npx wgc router download-binary -o ./tmp/wondergraph
 
-# Start postgres
-pg_ctl start
-
+nats-server&
 
 echo "post-start complete"
 echo "$(date +'%Y-%m-%d %H:%M:%S')    post-start complete" >> "$HOME/status"
