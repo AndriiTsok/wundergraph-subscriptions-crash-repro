@@ -16,3 +16,7 @@ type Customer implements Node @key(fields: "id") {
 type Query {
   node(id: ID!): Node
 }
+
+type Subscription {
+  heartbeat: String
+}

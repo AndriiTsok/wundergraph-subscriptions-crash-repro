@@ -1,17 +1,9 @@
-# directive @key(fields: String!) repeatable on OBJECT
-
-# extend type Customer @key(fields: "id") {
-#   id: ID!
-#   name: String!
-# }
-
 directive @external on FIELD_DEFINITION | OBJECT
 directive @key(fields: String!) repeatable on OBJECT | INTERFACE 
 directive @eventsSubscribe(topic: String!) on FIELD_DEFINITION
 
 type Product @key(fields: "id") @external {
   id: ID!
-  name: String!
 }
 
 type Subscription {

@@ -42,6 +42,11 @@ export type QueryNodeArgs = {
   id: Scalars['ID']['input'];
 };
 
+export type Subscription = {
+  __typename?: 'Subscription';
+  heartbeat?: Maybe<Scalars['String']['output']>;
+};
+
 export type WithIndex<TObject> = TObject & Record<string, any>;
 export type ResolversObject<TObject> = WithIndex<TObject>;
 
@@ -136,6 +141,7 @@ export type ResolversTypes = ResolversObject<{
   Product: ResolverTypeWrapper<Partial<Product>>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Partial<Scalars['String']['output']>>;
+  Subscription: ResolverTypeWrapper<{}>;
 }>;
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -147,6 +153,7 @@ export type ResolversParentTypes = ResolversObject<{
   Product: Partial<Product>;
   Query: {};
   String: Partial<Scalars['String']['output']>;
+  Subscription: {};
 }>;
 
 export type CustomerResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Customer'] = ResolversParentTypes['Customer']> = ResolversObject<{
@@ -170,10 +177,15 @@ export type QueryResolvers<ContextType = Context, ParentType extends ResolversPa
   node?: Resolver<Maybe<ResolversTypes['Node']>, ParentType, ContextType, RequireFields<QueryNodeArgs, 'id'>>;
 }>;
 
+export type SubscriptionResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']> = ResolversObject<{
+  heartbeat?: SubscriptionResolver<Maybe<ResolversTypes['String']>, "heartbeat", ParentType, ContextType>;
+}>;
+
 export type Resolvers<ContextType = Context> = ResolversObject<{
   Customer?: CustomerResolvers<ContextType>;
   Node?: NodeResolvers<ContextType>;
   Product?: ProductResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
+  Subscription?: SubscriptionResolvers<ContextType>;
 }>;
 

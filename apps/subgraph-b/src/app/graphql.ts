@@ -21,7 +21,6 @@ export type Scalars = {
 export type Product = {
   __typename?: 'Product';
   id: Scalars['ID']['output'];
-  name: Scalars['String']['output'];
 };
 
 export type Subscription = {
@@ -142,7 +141,6 @@ export type EventsSubscribeDirectiveResolver<Result, Parent, ContextType = Conte
 export type ProductResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Product'] = ResolversParentTypes['Product']> = ResolversObject<{
   __resolveReference?: ReferenceResolver<Maybe<ResolversTypes['Product']>, { __typename: 'Product' } & GraphQLRecursivePick<ParentType, {"id":true}>, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
