@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { GraphQLResolveInfo } from 'graphql';
 import { Context } from './models';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -16,8 +16,6 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  DateTime: { input: any; output: any; }
-  _FieldSet: { input: any; output: any; }
 };
 
 export type Customer = Node & {
@@ -131,25 +129,23 @@ export type ResolversInterfaceTypes<RefType extends Record<string, unknown>> = R
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = ResolversObject<{
+  Boolean: ResolverTypeWrapper<Partial<Scalars['Boolean']['output']>>;
   Customer: ResolverTypeWrapper<Partial<Customer>>;
   ID: ResolverTypeWrapper<Partial<Scalars['ID']['output']>>;
-  DateTime: ResolverTypeWrapper<Partial<Scalars['DateTime']['output']>>;
   Node: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Node']>;
   Product: ResolverTypeWrapper<Partial<Product>>;
   Query: ResolverTypeWrapper<{}>;
-  Boolean: ResolverTypeWrapper<Partial<Scalars['Boolean']['output']>>;
   String: ResolverTypeWrapper<Partial<Scalars['String']['output']>>;
 }>;
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = ResolversObject<{
+  Boolean: Partial<Scalars['Boolean']['output']>;
   Customer: Partial<Customer>;
   ID: Partial<Scalars['ID']['output']>;
-  DateTime: Partial<Scalars['DateTime']['output']>;
   Node: ResolversInterfaceTypes<ResolversParentTypes>['Node'];
   Product: Partial<Product>;
   Query: {};
-  Boolean: Partial<Scalars['Boolean']['output']>;
   String: Partial<Scalars['String']['output']>;
 }>;
 
@@ -158,10 +154,6 @@ export type CustomerResolvers<ContextType = Context, ParentType extends Resolver
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
-
-export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['DateTime'], any> {
-  name: 'DateTime';
-}
 
 export type NodeResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Node'] = ResolversParentTypes['Node']> = ResolversObject<{
   __resolveType: TypeResolveFn<'Customer' | 'Product', ParentType, ContextType>;
@@ -180,7 +172,6 @@ export type QueryResolvers<ContextType = Context, ParentType extends ResolversPa
 
 export type Resolvers<ContextType = Context> = ResolversObject<{
   Customer?: CustomerResolvers<ContextType>;
-  DateTime?: GraphQLScalarType;
   Node?: NodeResolvers<ContextType>;
   Product?: ProductResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;

@@ -1,10 +1,19 @@
-extend type Customer @key(fields: "id") {
+# directive @key(fields: String!) repeatable on OBJECT
+
+# extend type Customer @key(fields: "id") {
+#   id: ID!
+#   name: String!
+# }
+
+directive @external on FIELD_DEFINITION | OBJECT
+directive @key(fields: String!) repeatable on OBJECT | INTERFACE 
+directive @eventsSubscribe(topic: String!) on FIELD_DEFINITION
+
+type Product @key(fields: "id") @external {
   id: ID!
   name: String!
 }
 
-extend schema
-  @link(
-    url: "https://specs.apollo.dev/federation/v2.3"
-    import: ["@key", "@shareable", "@external"]
-  )
+type Subscription {
+  nodeUpdated(id: ID!): Product @eventsSubscribe(topic: "nodeUpdated.{{ args.id }}")
+}

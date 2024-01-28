@@ -1,9 +1,9 @@
-
-scalar DateTime
+directive @key(fields: String!) repeatable on OBJECT | INTERFACE 
 
 interface Node @key(fields: "id") {
   id: ID!
 }
+
 
 type Product implements Node @key(fields: "id") {
   id: ID!
@@ -16,14 +16,3 @@ type Customer implements Node @key(fields: "id") {
 type Query {
   node(id: ID!): Node
 }
-
-# directive @eventsSubscribe(topic: String!) on FIELD_DEFINITION
-# type Subscription {
-#   customerUpdated(id: ID!): Customer @eventsSubscribe(topic: "customerUpdated.{{ args.id }}")
-# }
-
-extend schema
-  @link(
-    url: "https://specs.apollo.dev/federation/v2.3"
-    import: ["@key", "@shareable", "@external"]
-  )
