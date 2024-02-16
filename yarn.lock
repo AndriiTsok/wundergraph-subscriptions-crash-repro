@@ -89,18 +89,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/experimental-nextjs-app-support@npm:^0.5.1":
-  version: 0.5.2
-  resolution: "@apollo/experimental-nextjs-app-support@npm:0.5.2"
+"@apollo/experimental-nextjs-app-support@npm:^0.7.0":
+  version: 0.7.1
+  resolution: "@apollo/experimental-nextjs-app-support@npm:0.7.1"
   dependencies:
     server-only: "npm:^0.0.1"
-    superjson: "npm:^1.12.2"
+    superjson: "npm:^1.12.2 || ^2.0.0"
     ts-invariant: "npm:^0.10.3"
   peerDependencies:
-    "@apollo/client": ">=3.8.0-rc || ^3.8.0 || >=3.9.0-alpha || >=3.9.0-beta || >=3.9.0-rc"
+    "@apollo/client": ">=3.8.0-rc || ^3.8.0 || >=3.9.0-alpha || >=3.9.0-beta || >=3.9.0-rc || ^3.9.0"
     next: ^13.4.1 || ^14.0.0
     react: ^18
-  checksum: 3070a5a02dcb4b62cf813379335d1c639371ba36f8d5553af6e45201cdf6efb8fab3fcf68e74567e5110dd5b76047f5aa310b6bfef8f36a660be88de16906c95
+  checksum: 76ef10607f8afed5b85d269b76ff89f238ebee5e1f6b7c3a7d6dc25506b5c04919e4b10a55fc190289a616004c0bf7be7ad9fb476d97617e1952d00d49169e1c
   languageName: node
   linkType: hard
 
@@ -2252,7 +2252,7 @@ __metadata:
   resolution: "@edfs/monorepo@workspace:."
   dependencies:
     "@apollo/client": "npm:^3.8.7"
-    "@apollo/experimental-nextjs-app-support": "npm:^0.5.1"
+    "@apollo/experimental-nextjs-app-support": "npm:^0.7.0"
     "@apollo/server": "npm:^4.10.0"
     "@apollo/subgraph": "npm:^2.5.7"
     "@babel/core": "npm:^7.23.3"
@@ -24698,12 +24698,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"superjson@npm:^1.12.2":
-  version: 1.13.3
-  resolution: "superjson@npm:1.13.3"
+"superjson@npm:^1.12.2 || ^2.0.0":
+  version: 2.2.1
+  resolution: "superjson@npm:2.2.1"
   dependencies:
     copy-anything: "npm:^3.0.2"
-  checksum: 389a0a0c86884dd0558361af5d6d7f37102b71dda9595a665fe8b39d1ba0e57c859e39a9bd79b6f1fde6f4dcceac49a1c205f248d292744b2a340ee52846efdb
+  checksum: 5d8202c955170bd98ef2647f712754ac54d2d007923cfdb53a4b035304d8964b8c41d5eff41ee277896e2ac32e06abb009b571f1589416b729fe40216320cc7a
   languageName: node
   linkType: hard
 
@@ -25719,11 +25719,11 @@ __metadata:
   linkType: hard
 
 "undici@npm:^5.28.2":
-  version: 5.28.2
-  resolution: "undici@npm:5.28.2"
+  version: 5.28.3
+  resolution: "undici@npm:5.28.3"
   dependencies:
     "@fastify/busboy": "npm:^2.0.0"
-  checksum: 34385ad9b3ba85309972ee3c1b426dcd19b94a5a6aa9c54499b5f48436c0ecc13a9b1e756a7c6a953eaefa9f4263890625ece5f2719fd774b0852204f5e4d5f9
+  checksum: 3c559ae50ef3104b7085251445dda6f4de871553b9e290845649d2f80b06c0c9cfcdf741b0029c6b20d36c82e6a74dc815b139fa9a26757d70728074ca6d6f5c
   languageName: node
   linkType: hard
 
