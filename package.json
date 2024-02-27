@@ -80,7 +80,7 @@
   "packageManager": "yarn@4.0.2",
   "dependencies": {
     "@apollo/client": "^3.8.7",
-    "@apollo/experimental-nextjs-app-support": "^0.5.1",
+    "@apollo/experimental-nextjs-app-support": "^0.7.0",
     "@apollo/server": "^4.10.0",
     "@apollo/subgraph": "^2.5.7",
     "@googlemaps/google-maps-services-js": "^3.3.42",
