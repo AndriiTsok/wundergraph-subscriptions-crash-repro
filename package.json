@@ -89,7 +89,7 @@
     "@tryon-technology/global-id": "1.0.2",
     "@vis.gl/react-google-maps": "^0.4.1",
     "apollo-server": "^3.13.0",
-    "axios": "^1.0.0",
+    "axios": "^1.6.8",
     "cbor-x": "^1.5.6",
     "cookie-parser": "^1.4.6",
     "copy-to-clipboard": "^3.3.3",
